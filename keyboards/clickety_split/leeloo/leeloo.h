@@ -22,3 +22,6 @@
 #if defined(KEYBOARD_clickety_split_leeloo_rev1)
 #    include "rev1.h"
 #endif
+#if defined(KEYBOARD_clickety_split_leeloo_rev2)
+#    include "rev2.h"
+#endif

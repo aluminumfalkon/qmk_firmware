@@ -17,16 +17,11 @@
 
 #pragma once
 
-// Select hand configuration
-// #define MASTER_LEFT
-// #define MASTER_RIGHT
-// #define EE_HANDS
-
 #ifdef TAPPING_TERM
     #undef TAPPING_TERM
 
     #define IGNORE_MOD_TAP_INTERRUPT
-    #define QUICK_TAP_TERM 0
+    #define TAPPING_FORCE_HOLD
     #define TAPPING_TERM 150
 #endif
 
