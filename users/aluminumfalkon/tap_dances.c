@@ -1,6 +1,6 @@
 #include "aluminumfalkon.h"
 
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
   [TD_ANGLE_CLOSE]        = ACTION_TAP_DANCE_DOUBLE(KC_LT, KC_GT),
   [TD_PARENTHESIS_CLOSE]  = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_RPRN),
   [TD_BRACKET_CLOSE]      = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC),
