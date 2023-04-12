@@ -54,11 +54,11 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT(
-  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
-  KC_TAB,   TDX_Q,  KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_GRV,
-  KC_CAPS,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                           KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    CS_M3,        KC_RCTL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-               KC_LALT, KC_LGUI, LT(1,KC_ENT), LT(2,KC_MINS),         LT(2,KC_EQL), LT(1,KC_SPC), KC_BSPC, KC_ENT
+  _______,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,      KC_BSLS,
+  KC_ESC,   TDX_Q,  KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,      KC_GRV,
+  KC_TAB,   LCTL_A, LOPT_S,  LCMD_D,  LSFT_F,  HYPR_G,                         HYPR_H,  RSFT_J,  RCMD_K,  ROPT_L,  RCTL_SCLN, KC_QUOT,
+  _______,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    CS_M3,        KC_RCTL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,   KC_RSFT,
+            THB_FUNC, THB_LAUNCH, THB_SPC_NAV, THB_NUMPAD,            THB_ADJUST, THB_ENT_SYM, KC_BSPC, _______
 ),
 
 [_QWERTY_LOWER] = LAYOUT(
@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              _______, _______, _______, _______,      _______, _______, _______, _______
 ),
 
-[_QWERTY_RAISE] = LAYOUT(
+[_NAV] = LAYOUT(
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                          KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   _______, _______, _______, _______, _______, _______,                        KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_F12,
   _______, TDW_GT,  TDW_PR,  TDW_BK,  TDW_BC,  _______,                        KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
@@ -83,7 +83,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, _______,                        _______, DSK_LTX, KC_VOLD, DSK_RTX, _______, _______,
   _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, _______, _______,      _______, _______, KC_MUTE, _______, _______, _______, _______,
                              _______, _______, _______, _______,      _______, _______, _______, _______
-)
+),
+
+[_SYMBOL] = LAYOUT(
+    _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                        _______, _______, KC_VOLU, _______, _______, _______,
+    _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, _______,                        _______, DSK_LTX, KC_VOLD, DSK_RTX, _______, _______,
+    _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, _______, _______,      _______, _______, KC_MUTE, _______, _______, _______, _______,
+    _______, _______, _______, _______,      _______, _______, _______, _______
+    ),
 
 };
 
@@ -144,11 +152,14 @@ bool oled_task_user(void) {
             case _QWERTY_LOWER:
                 oled_write_P(PSTR("Lower\n"), false);
                 break;
-            case _QWERTY_RAISE:
-                oled_write_P(PSTR("Raise\n"), false);
+            case _NAV:
+                oled_write_P(PSTR("Navigation\n"), false);
                 break;
             case _QWERTY_ADJUST:
                 oled_write_P(PSTR("Adjust\n"), false);
+                break;
+            case _SYMBOL:
+                oled_write_P(PSTR("Symbol\n"), false);
                 break;
             default:
                 // Or use the write_ln shortcut over adding '\n' to the end of your string
