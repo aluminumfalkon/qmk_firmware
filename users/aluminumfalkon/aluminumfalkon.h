@@ -8,11 +8,13 @@
   #include "tap_dances.h"
 #endif
 
+
 enum layer_number {
   _QWERTY = 0,
   _QWERTY_LOWER,
-  _QWERTY_RAISE,
+  _NAV,
   _QWERTY_ADJUST,
+  _SYMBOL
 };
 
 enum custom_keycodes {
