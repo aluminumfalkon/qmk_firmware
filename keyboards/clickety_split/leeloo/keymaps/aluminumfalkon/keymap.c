@@ -30,25 +30,21 @@
 #define RSFT_FS     MT(MOD_RSFT, KC_SLSH)
 #define RSFT_TD     MT(MOD_RSFT, KC_TILD)
 
-
-// OSX
-#define WRD_LTX     A(KC_LEFT)
-#define WRD_RTX     A(KC_RGHT)
-
-// OSX
-#define DSK_LTX     C(KC_LEFT)
-#define DSK_RTX     C(KC_RGHT)
-
-/**
-// Swap Virtual Desktops Left and Right
-// Windows
-#define WRD_LTW     C(KC_LEFT)
-#define WRD_RTW     C(KC_RGHT)
-
-// Windows
-#define DSK_LTW     G(C(KC_LEFT))
-#define DSK_RTW     G(C(KC_RGHT))
-**/
+#define OPT_LFT    A(KC_LEFT)
+#define OPT_RT     A(KC_RGHT)
+#define CTL_LFT    C(KC_LEFT)
+#define CTL_RT     C(KC_RGHT)
+#define CMD_LFT    G(KC_LEFT)
+#define CMD_RT     G(KC_RIGHT)
+#define SCRNSHT    SGUI(KC_F4)
+#define UNDO       G(KC_Z)
+#define CUT        G(KC_X)
+#define COPY       G(KC_C)
+#define PASTE      G(KC_V)
+#define ONEPSWD    LAG(KC_QUOTE)
+#define BASE       TO(0)
+#define LAYR_LCK   MO(_LAYER_LOCK)
+#define MEDIA      MO(_MEDIA)
 
 // Home row mods
 #define LCTL_A        MT(MOD_LCTL, KC_A)
@@ -63,12 +59,13 @@
 #define RCTL_SCLN     MT(MOD_RCTL, KC_SCLN)
 
 // Thumb buttons
-#define THB_FUNC      _______
-#define THB_LAUNCH    _______
-#define THB_SPC_NAV   LT(_NAV, KC_SPC)
-#define THB_NUMPAD    _______
-#define THB_ADJUST    _______
-#define THB_ENT_SYM   LT(_SYMBOL, KC_ENT)
+#define TB_FUNC       _______
+#define TB_LAUNCH     _______
+#define TB_SPC_LWR    LT(_QWERTY_LOWER, KC_SPC)
+#define TB_NUMPAD     MO(_NUMPAD)
+#define TB_NUMERIC    MO(_NUMERIC)
+#define TB_ADJUST     _______
+#define TB_ENT_SYM    LT(_SYMBOL, KC_ENT)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -77,42 +74,57 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,      KC_BSLS,
   KC_ESC,   TDX_Q,  KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,      KC_GRV,
   KC_TAB,   LCTL_A, LOPT_S,  LCMD_D,  LSFT_F,  HYPR_G,                         HYPR_H,  RSFT_J,  RCMD_K,  ROPT_L,  RCTL_SCLN, KC_QUOT,
-  _______,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    CS_M3,        KC_RCTL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,   KC_RSFT,
-            THB_FUNC, THB_LAUNCH, THB_SPC_NAV, THB_NUMPAD,            THB_ADJUST, THB_ENT_SYM, KC_BSPC, _______
+  LAYR_LCK, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   CS_M3,       MEDIA, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,   KC_RSFT,
+                  TB_FUNC, TB_LAUNCH, TB_SPC_LWR, TB_NUMPAD,        TB_NUMERIC, TB_ENT_SYM, KC_BSPC, _______
 ),
 
 [_QWERTY_LOWER] = LAYOUT(
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                          KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, KC_F12,
-  _______, TDW_GT,  TDW_PR,  TDW_BK,  TDW_BC,  _______,                        _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______,      _______,   CS_M4,   CS_M5, _______, _______, _______, _______,
-                             _______, _______, _______, _______,      _______, _______, _______, _______
+  _______, _______, _______, SCRNSHT, CTL_LFT, CTL_RT,                         KC_PGUP, OPT_LFT, KC_UP,   OPT_RT,  _______, KC_F12,
+  _______, KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_HYPR,                        KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+  BASE,    UNDO,    CUT,     COPY,    PASTE,   CW_TOGG, KC_CAPS,      _______, _______, CMD_LFT, _______, CMD_RT,  _______, _______,
+                          _______,    _______, _______, _______,      _______, _______, KC_DEL,  _______
 ),
 
-[_NAV] = LAYOUT(
-  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                          KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  _______, _______, _______, _______, _______, _______,                        KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_F12,
-  _______, TDW_GT,  TDW_PR,  TDW_BK,  TDW_BC,  _______,                        KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______,      _______, _______, WRD_LTX, _______, WRD_RTX, _______, _______,
-                             _______, _______, _______, _______,      _______, _______, KC_DEL,  _______
-),
-
-[_QWERTY_ADJUST] = LAYOUT(
+[_MEDIA] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                        _______, _______, KC_VOLU, _______, _______, _______,
-  _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, _______,                        _______, DSK_LTX, KC_VOLD, DSK_RTX, _______, _______,
-  _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, _______, _______,      _______, _______, KC_MUTE, _______, _______, _______, _______,
+  _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, _______,                        _______, _______, KC_VOLD, _______, _______, _______,
+  BASE,    RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, _______, _______,         _______, _______, KC_MUTE, _______, _______, _______, _______,
                              _______, _______, _______, _______,      _______, _______, _______, _______
 ),
 
 [_SYMBOL] = LAYOUT(
     _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______,                        _______, _______, KC_VOLU, _______, _______, _______,
-    _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, _______,                        _______, DSK_LTX, KC_VOLD, DSK_RTX, _______, _______,
-    _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, _______, _______,      _______, _______, KC_MUTE, _______, _______, _______, _______,
-    _______, _______, _______, _______,      _______, _______, _______, _______
+    KC_GRAVE,KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                        KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS, KC_PLUS, _______,
+    _______, KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, _______,                        KC_LCBR, KC_RCBR, KC_PIPE, KC_UNDS, KC_EQL,  _______,
+    BASE,    _______, _______, _______, _______, _______, _______,      _______, KC_TILD, XXXXXXX, KC_LT,   KC_GT,   KC_BSLS, _______,
+                               _______, _______, _______, _______,      _______, _______, _______, _______
     ),
 
+[_NUMERIC] = LAYOUT(
+    _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, KC_PLUS, _______,
+    _______, _______, _______, _______, _______, _______,                        KC_COLN, _______, KC_ASTR, KC_MINS, KC_MINS, _______,
+    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+    BASE,    _______, _______, KC_COLN, _______, _______, _______,      _______, KC_DOT,  KC_0,    _______, _______, KC_SLSH, _______,
+                               _______, _______, _______, _______,      _______, TB_ENT_SYM, KC_BSPC, _______
+    ),
+
+[_NUMPAD] = LAYOUT(
+    _______, KC_F2,   _______, _______, _______, _______,                        _______, _______, _______, _______, KC_PLUS, _______,
+    _______, _______, _______, _______, _______, _______,                        KC_COLN, KC_7,    KC_8,    KC_9,    KC_MINS, _______,
+    _______, KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_HYPR,                        KC_EQL,  KC_4,    KC_5,    KC_6,    KC_ASTR, _______,
+    BASE,    _______, _______, _______, _______, _______, _______,      _______, KC_DOT,  KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
+                               _______, _______, _______, _______,      KC_O,    TB_ENT_SYM, KC_BSPC, _______
+    ),
+
+[_LAYER_LOCK] = LAYOUT(
+    _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
+    _______,    _______, _______, _______, _______, _______, _______,      TO(_MEDIA), _______, _______, _______, _______, _______, _______,
+                    TO(_FUNC), ONEPSWD, TO(QWERTY_LOWER), TO(_NUMPAD),     TO(_NUMERIC), TO(_SYMBOL), _______, _______
+    ),
 };
 
 #ifdef OLED_ENABLE
@@ -170,16 +182,22 @@ bool oled_task_user(void) {
                 oled_write_P(PSTR("Leeloo\n"), false);
                 break;
             case _QWERTY_LOWER:
-                oled_write_P(PSTR("Lower\n"), false);
-                break;
-            case _NAV:
                 oled_write_P(PSTR("Navigation\n"), false);
                 break;
-            case _QWERTY_ADJUST:
+            case _MEDIA:
                 oled_write_P(PSTR("Adjust\n"), false);
                 break;
             case _SYMBOL:
                 oled_write_P(PSTR("Symbol\n"), false);
+                break;
+            case _NUMERIC:
+                oled_write_P(PSTR("Numeric row\n"), false);
+                break;
+            case _NUMPAD:
+                oled_write_P(PSTR("Numeric keypad\n"), false);
+                break;
+            case _LAYER_LOCK:
+                oled_write_P(PSTR("Layer lock\n"), false);
                 break;
             default:
                 // Or use the write_ln shortcut over adding '\n' to the end of your string
@@ -231,7 +249,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                     tap_code(KC_RBRC);
                 }
                 break;
-            case _QWERTY_ADJUST:
+            case _MEDIA:
                 // Volume Up / Volume Down
                 if (clockwise) {
                     tap_code(KC_VOLD);
@@ -275,7 +293,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                     tap_code(KC_LEFT);
                 }
                 break;
-            case _QWERTY_ADJUST:
+            case _MEDIA:
                 // Page up/Page down
                 if (clockwise) {
                     tap_code(KC_PGDN);

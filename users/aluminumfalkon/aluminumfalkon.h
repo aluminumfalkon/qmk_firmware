@@ -12,9 +12,11 @@
 enum layer_number {
   _QWERTY = 0,
   _QWERTY_LOWER,
-  _NAV,
-  _QWERTY_ADJUST,
-  _SYMBOL
+  _MEDIA,
+  _SYMBOL,
+  _NUMERIC,
+  _NUMPAD,
+  _LAYER_LOCK
 };
 
 enum custom_keycodes {
