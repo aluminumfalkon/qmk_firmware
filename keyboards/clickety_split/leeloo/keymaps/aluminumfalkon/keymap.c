@@ -30,11 +30,11 @@
 #define RSFT_FS     MT(MOD_RSFT, KC_SLSH)
 #define RSFT_TD     MT(MOD_RSFT, KC_TILD)
 
-#define OPT_LFT    A(KC_LEFT)
+#define OPT_LT     A(KC_LEFT)
 #define OPT_RT     A(KC_RGHT)
-#define CTL_LFT    C(KC_LEFT)
+#define CTL_LT     C(KC_LEFT)
 #define CTL_RT     C(KC_RGHT)
-#define CMD_LFT    G(KC_LEFT)
+#define CMD_LT     G(KC_LEFT)
 #define CMD_RT     G(KC_RIGHT)
 #define SCRNSHT    SGUI(KC_F4)
 #define UNDO       G(KC_Z)
@@ -80,9 +80,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY_LOWER] = LAYOUT(
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                          KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  _______, _______, _______, SCRNSHT, CTL_LFT, CTL_RT,                         KC_PGUP, OPT_LFT, KC_UP,   OPT_RT,  _______, KC_F12,
+  _______, _______, _______, SCRNSHT, CTL_LT,  CTL_RT,                         KC_PGUP, OPT_LT,  KC_UP,   OPT_RT,  _______, KC_F12,
   _______, KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_HYPR,                        KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-  BASE,    UNDO,    CUT,     COPY,    PASTE,   CW_TOGG, KC_CAPS,      _______, _______, CMD_LFT, _______, CMD_RT,  _______, _______,
+  BASE,    UNDO,    CUT,     COPY,    PASTE,   CW_TOGG, KC_CAPS,      _______, _______, CMD_LT, _______,  CMD_RT,  _______, _______,
                           _______,    _______, _______, _______,      _______, _______, KC_DEL,  _______
 ),
 
