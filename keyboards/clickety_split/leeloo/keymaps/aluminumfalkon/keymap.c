@@ -122,8 +122,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
-    _______,    _______, _______, _______, _______, _______, _______,      TO(_MEDIA), _______, _______, _______, _______, _______, _______,
-                    TO(_FUNC), ONEPSWD, TO(QWERTY_LOWER), TO(_NUMPAD),     TO(_NUMERIC), TO(_SYMBOL), _______, _______
+    _______, _______, _______, _______, _______, _______, _______,      TO(_MEDIA), _______, _______, _______, _______, _______, _______,
+                  _______, ONEPSWD, TO(_QWERTY_LOWER), TO(_NUMPAD),     TO(_NUMERIC), TO(_SYMBOL), _______, _______
     ),
 };
 
@@ -241,14 +241,6 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                     tap_code16(C(KC_EQL));
                 }
                 break;
-            case _NAV:
-                // Brush Size Smaller / Larger
-                if (clockwise) {
-                    tap_code(KC_LBRC);
-                } else {
-                    tap_code(KC_RBRC);
-                }
-                break;
             case _MEDIA:
                 // Volume Up / Volume Down
                 if (clockwise) {
@@ -283,14 +275,6 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
                     tap_code(KC_DOWN);
                 } else {
                     tap_code(KC_UP);
-                }
-                break;
-            case _NAV:
-                // Right / Left
-                if (clockwise) {
-                    tap_code(KC_RIGHT);
-                } else {
-                    tap_code(KC_LEFT);
                 }
                 break;
             case _MEDIA:
