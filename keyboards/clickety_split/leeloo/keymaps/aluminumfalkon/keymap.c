@@ -79,10 +79,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_QWERTY_LOWER] = LAYOUT(
-  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                          KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  _______, _______, _______, SCRNSHT, CTL_LT,  CTL_RT,                         KC_PGUP, OPT_LT,  KC_UP,   OPT_RT,  _______, KC_F12,
-  _______, KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_HYPR,                        KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-  BASE,    UNDO,    CUT,     COPY,    PASTE,   CW_TOGG, KC_CAPS,      _______, _______, CMD_LT, _______,  CMD_RT,  _______, _______,
+  XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                          KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+  XXXXXXX, XXXXXXX, XXXXXXX, SCRNSHT, CTL_LT,  CTL_RT,                         KC_PGUP, OPT_LT,  KC_UP,   OPT_RT,  XXXXXXX, KC_F12,
+  XXXXXXX, KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_HYPR,                        KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX,
+  BASE,    UNDO,    CUT,     COPY,    PASTE,   CW_TOGG, KC_CAPS,      XXXXXXX, XXXXXXX, CMD_LT, XXXXXXX,  CMD_RT,  XXXXXXX, XXXXXXX,
                           _______,    _______, _______, _______,      _______, _______, KC_DEL,  _______
 ),
 
